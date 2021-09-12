@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class OpenAnimationTriggerListener : MonoBehaviour
 {
+    //[SerializeField] private string eventName;
+    [SerializeField] private Animator animator;
+    [SerializeField] private ObjectController thisObjectController;
+    private bool isOpen;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        isOpen = false;
+        EventBroadcaster.Instance.AddObserver(GameEventNames.OPEN_ANIMATION_TRIGGER, this.AnimateOpening);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDestroy()
     {
-        
+        EventBroadcaster.Instance.RemoveObserver(GameEventNames.OPEN_ANIMATION_TRIGGER);
+    }
+    private void AnimateOpening(Parameters parameters)
+    {
+        string triggeredItemName = parameters.GetStringExtra(GameEventNames.ITEM_NAME, "itemName");
+        if(thisObjectController.GetItemName() == triggeredItemName && !isOpen)
+        {
+            animator.Play("OpenAnimation", 0, 0.0f);
+            isOpen = true;
+        }
     }
 }
