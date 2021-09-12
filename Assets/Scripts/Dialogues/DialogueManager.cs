@@ -4,9 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
-{
-
-   
+{   
     public Text dialogueText;
 
     public Queue<string> sentences;
@@ -17,6 +15,8 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
+
+        //EventBroadcaster.Instance.AddObserver(GameEventNames.BEAR_INTERACTED, TeddyBear.TriggerDialogue());
     }
 
     private void Update()
