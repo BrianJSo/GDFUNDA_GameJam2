@@ -10,7 +10,6 @@ public class InspectRaycast : MonoBehaviour
     [SerializeField] private LayerMask layerMaskInteract;
     private ObjectController rayCastedObj;
     
-    [SerializeField] private Image crosshair;
     private bool isCrosshairActive;
     private bool doOnce;
 

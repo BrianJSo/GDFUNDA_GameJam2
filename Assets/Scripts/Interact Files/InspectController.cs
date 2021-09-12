@@ -8,14 +8,11 @@ public class InspectController : MonoBehaviour
     [SerializeField] private Text objectnameUI;
 
     [SerializeField] private float onScreenTimer;
-    [SerializeField] private Text extraInfoUI;
-    [SerializeField] private GameObject extranInfoBG;
     [HideInInspector] public bool startTimer;
     private float timer;
 
     void Start()
     {
-        extranInfoBG.SetActive(false);
     }
 
     void Update()
@@ -45,13 +42,6 @@ public class InspectController : MonoBehaviour
     {
         timer = onScreenTimer;
         startTimer = true;
-        extranInfoBG.SetActive(true);
-        extraInfoUI.text = newInfo;
     }
 
-    public void CleanAdditionalInfo()
-    {
-        extranInfoBG.SetActive(false);
-        extraInfoUI.text = "";
-    }
 }
