@@ -19,6 +19,14 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            DisplayNextSentence();
+        }
+    }
+
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("isOpen", true);
@@ -29,7 +37,10 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
 
-        DisplayNextSentence();
+
+       
+            DisplayNextSentence();
+        
     }
     
     public void DisplayNextSentence()
