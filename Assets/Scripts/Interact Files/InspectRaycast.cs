@@ -27,7 +27,6 @@ public class InspectRaycast : MonoBehaviour
                 if (!doOnce)
                 {
                     rayCastedObj = hit.collider.gameObject.GetComponent<ObjectController>();
-                    rayCastedObj.ShowObjectName();
                     Debug.Log(rayCastedObj.GetItemName());
 
                 }
@@ -43,7 +42,6 @@ public class InspectRaycast : MonoBehaviour
         {
             if (isCrosshairActive)
             {
-                rayCastedObj.HideObjectName();
                 doOnce = false;
             }
            
