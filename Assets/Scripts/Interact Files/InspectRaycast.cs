@@ -27,21 +27,21 @@ public class InspectRaycast : MonoBehaviour
                 if (!doOnce)
                 {
                     rayCastedObj = hit.collider.gameObject.GetComponent<ObjectController>();
-                    Debug.Log(rayCastedObj.GetItemName());
-
+                    rayCastedObj.ShowObjectName();
                 }
                 isCrosshairActive = true;
                 doOnce = true;
             }
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log(rayCastedObj.GetItemName());
+                Debug.Log("Clicked: " + rayCastedObj.GetItemName());
             }
         }
         else
         {
             if (isCrosshairActive)
             {
+                rayCastedObj.HideObjectName();
                 doOnce = false;
             }
            

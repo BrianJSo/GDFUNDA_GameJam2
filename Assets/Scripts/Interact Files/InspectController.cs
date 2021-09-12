@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class InspectController : MonoBehaviour
 {
-    [SerializeField] private GameObject objectNameBG;
     [SerializeField] private Text objectnameUI;
 
     [SerializeField] private float onScreenTimer;
@@ -16,7 +15,6 @@ public class InspectController : MonoBehaviour
 
     void Start()
     {
-        objectNameBG.SetActive(false);
         extranInfoBG.SetActive(false);
     }
 
@@ -35,13 +33,11 @@ public class InspectController : MonoBehaviour
 
     public void ShowName(string objectName)
     {
-        objectNameBG.SetActive(true);
         objectnameUI.text = objectName;
     }
 
     public void HideName()
     {
-        objectNameBG.SetActive(false);
         objectnameUI.text = "";
     }
 
