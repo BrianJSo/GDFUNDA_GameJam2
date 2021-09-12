@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeddyBear : MonoBehaviour
+public class Trophy : MonoBehaviour
 {
     public Dialogue dialogue;
 
     private void Start()
     {
-        EventBroadcaster.Instance.AddObserver(GameEventNames.BEAR_INTERACTED, this.TriggerDialogue);
+        EventBroadcaster.Instance.AddObserver(GameEventNames.TROPHY_INTERACTED, this.TriggerDialogue);
     }
 
     public void TriggerDialogue()
