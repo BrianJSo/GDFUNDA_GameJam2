@@ -14,5 +14,6 @@ public class Guitar : MonoBehaviour
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        GameObject.Find("GuitarA").GetComponent<MeshCollider>().enabled = false;
     }
 }

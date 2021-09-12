@@ -14,5 +14,6 @@ public class Trophy : MonoBehaviour
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        GameObject.Find("Trophy").GetComponent<MeshCollider>().enabled = false;        
     }
 }

@@ -14,5 +14,6 @@ public class TeddyBear : MonoBehaviour
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        GameObject.Find("Teddy").GetComponent<MeshCollider>().enabled = false;
     }
 }

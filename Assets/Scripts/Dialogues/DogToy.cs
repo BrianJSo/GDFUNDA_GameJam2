@@ -14,5 +14,6 @@ public class DogToy : MonoBehaviour
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        GameObject.Find("DogStuff").GetComponent<BoxCollider>().enabled = false;
     }
 }

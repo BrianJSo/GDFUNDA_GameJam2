@@ -14,5 +14,6 @@ public class MetallicaPoster : MonoBehaviour
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        GameObject.Find("MettalicaPoster").GetComponent<MeshCollider>().enabled = false;
     }
 }

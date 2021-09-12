@@ -14,5 +14,6 @@ public class JordanShoes : MonoBehaviour
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        GameObject.Find("Shoes").GetComponent<MeshCollider>().enabled = false;
     }
 }

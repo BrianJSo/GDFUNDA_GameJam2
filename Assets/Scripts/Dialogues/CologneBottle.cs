@@ -14,5 +14,6 @@ public class CologneBottle : MonoBehaviour
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        GameObject.Find("Perfume").GetComponent<MeshCollider>().enabled = false;
     }
 }
