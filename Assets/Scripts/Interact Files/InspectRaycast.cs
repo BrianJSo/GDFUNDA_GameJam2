@@ -35,6 +35,55 @@ public class InspectRaycast : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log("Clicked: " + rayCastedObj.GetItemName());
+
+                Parameters animationParams = new Parameters();
+                animationParams.PutExtra(GameEventNames.ITEM_NAME, rayCastedObj.GetItemName());
+
+                switch (rayCastedObj.GetItemName())
+                {
+                    case "Trophy":
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.TROPHY_INTERACTED);
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.ITEM_INTERACTED);
+                        break;
+                    case "Guitar":
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.GUITAR_INTERACTED);
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.ITEM_INTERACTED);
+                        break;
+                    case "Poster":
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.POSTER_INTERACTED);
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.ITEM_INTERACTED);
+                        break;
+                    case "Stuffed Bear":
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.BEAR_INTERACTED);
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.ITEM_INTERACTED);
+                        break;
+                    case "Dog Stuff":
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.DOG_INTERACTED);
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.ITEM_INTERACTED);
+                        break;
+                    case "Cologne":
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.COLOGNE_INTERACTED);
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.ITEM_INTERACTED);
+                        break;
+                    case "Shoes":
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.SHOES_INTERACTED);
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.ITEM_INTERACTED);
+                        break;
+                    case "Picture":
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.PICTURE_INTERACTED);
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.ITEM_INTERACTED);
+                        break;
+                    case "Closet door":
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.OPEN_ANIMATION_TRIGGER, animationParams);
+                        break;
+                    case "Folder":
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.OPEN_ANIMATION_TRIGGER, animationParams);
+                        break;
+                    case "Drawer":
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.OPEN_ANIMATION_TRIGGER, animationParams);
+                        break;
+
+                }
             }
         }
         else
