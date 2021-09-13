@@ -72,10 +72,14 @@ public class InspectRaycast : MonoBehaviour
                         EventBroadcaster.Instance.PostEvent(GameEventNames.PICTURE_INTERACTED);
                         EventBroadcaster.Instance.PostEvent(GameEventNames.ITEM_INTERACTED);
                         break;
+                    case "Deed":
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.DEED_INTERACTED);                        
+                        break;
                     case "Closet door":
                         EventBroadcaster.Instance.PostEvent(GameEventNames.OPEN_ANIMATION_TRIGGER, animationParams);
                         break;
                     case "Folder":
+                        EventBroadcaster.Instance.PostEvent(GameEventNames.DEED_INTERACTED);
                         EventBroadcaster.Instance.PostEvent(GameEventNames.OPEN_ANIMATION_TRIGGER, animationParams);
                         break;
                     case "Drawer":

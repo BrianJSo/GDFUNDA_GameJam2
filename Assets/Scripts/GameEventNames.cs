@@ -14,6 +14,7 @@ public class GameEventNames
     public const string COLOGNE_INTERACTED = "COLOGNE_INTERACTED";
     public const string DOG_INTERACTED = "DOG_INTERACTED";
     public const string POSTER_INTERACTED = "POSTER_INTERACTED";
+    public const string DEED_INTERACTED = "DEED_INTERACTED";
 
     public const string OPEN_ANIMATION_TRIGGER = "OPEN_ANIMATION_TRIGGER";
     // Broadcast Parameter identifiers
