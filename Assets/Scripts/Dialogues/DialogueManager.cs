@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
 
     public Animator animator;
     [SerializeField] public GameObject controller;
+    [SerializeField] public GameObject ending;
 
     // Start is called before the first frame update
     void Start()
@@ -71,5 +72,13 @@ public class DialogueManager : MonoBehaviour
     {
         controller.GetComponent<FirstPersonController>().enabled = true;
         animator.SetBool("isOpen", false);
+
+        if(DeedDialogue.DeedInteracted)
+        {
+            controller.GetComponent<FirstPersonController>().enabled = true;
+            controller.GetComponent<FirstPersonController>().m_MouseLook.SetCursorLock(false);
+            controller.GetComponent<FirstPersonController>().m_MouseLook.UpdateCursorLock();
+            ending.SetActive(true);
+        }
     }
 }

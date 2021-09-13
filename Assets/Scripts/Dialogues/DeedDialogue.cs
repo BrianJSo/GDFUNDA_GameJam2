@@ -6,7 +6,8 @@ public class DeedDialogue : MonoBehaviour
 {
     public Dialogue dialogue1;
     public Dialogue dialogue2;
-    public static int i = 0;
+    public static int keyInteracted = 0;
+    public static bool DeedInteracted = false;
 
     private void Start()
     {
@@ -15,24 +16,21 @@ public class DeedDialogue : MonoBehaviour
     }
 
     public void TriggerDialogue()
-    {
-        Debug.Log("dialogue triggered");
-        if (i < 6)
+    {       
+        if (keyInteracted < 6)
         {
-            Debug.Log("Pre 6 dialogue" + dialogue1.sentences[0]);
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue1);
-            Debug.Log("Pre 6 dialogue" + dialogue1.sentences[0]);
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue1);            
         }
         else
         {
-            Debug.Log("Post 6 dialogue");
+            DeedInteracted = true;
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue2);
         }
     }
 
     public void counter()
     {
-        i++;
+        keyInteracted++;
     }
     
     void OnDestroy()
