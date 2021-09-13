@@ -16,4 +16,9 @@ public class CologneBottle : MonoBehaviour
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         GameObject.Find("Perfume").GetComponent<BoxCollider>().enabled = false;
     }
+
+    void OnDestroy()
+    {
+        EventBroadcaster.Instance.RemoveObserver(GameEventNames.COLOGNE_INTERACTED);
+    }
 }

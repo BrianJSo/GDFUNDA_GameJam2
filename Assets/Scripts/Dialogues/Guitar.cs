@@ -16,4 +16,9 @@ public class Guitar : MonoBehaviour
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         GameObject.Find("GuitarA").GetComponent<MeshCollider>().enabled = false;
     }
+
+    void OnDestroy()
+    {
+        EventBroadcaster.Instance.RemoveObserver(GameEventNames.GUITAR_INTERACTED);
+    }
 }

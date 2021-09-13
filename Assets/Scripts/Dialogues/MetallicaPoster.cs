@@ -16,4 +16,9 @@ public class MetallicaPoster : MonoBehaviour
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         GameObject.Find("MettalicaPoster").GetComponent<MeshCollider>().enabled = false;
     }
+
+    void OnDestroy()
+    {
+        EventBroadcaster.Instance.RemoveObserver(GameEventNames.POSTER_INTERACTED);        
+    }
 }

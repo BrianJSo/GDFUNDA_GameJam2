@@ -16,4 +16,9 @@ public class Trophy : MonoBehaviour
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         GameObject.Find("Trophy").GetComponent<MeshCollider>().enabled = false;        
     }
+
+    void OnDestroy()
+    {
+        EventBroadcaster.Instance.RemoveObserver(GameEventNames.TROPHY_INTERACTED);
+    }
 }

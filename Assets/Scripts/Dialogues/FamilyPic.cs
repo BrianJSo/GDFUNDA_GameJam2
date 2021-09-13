@@ -16,4 +16,9 @@ public class FamilyPic : MonoBehaviour
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         GameObject.Find("FamilyPicture").GetComponent<MeshCollider>().enabled = false;
     }
+
+    void OnDestroy()
+    {
+        EventBroadcaster.Instance.RemoveObserver(GameEventNames.PICTURE_INTERACTED);
+    }
 }

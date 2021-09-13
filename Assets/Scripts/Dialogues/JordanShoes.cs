@@ -16,4 +16,9 @@ public class JordanShoes : MonoBehaviour
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         GameObject.Find("Shoes").GetComponent<BoxCollider>().enabled = false;
     }
+
+    void OnDestroy()
+    {
+        EventBroadcaster.Instance.RemoveObserver(GameEventNames.SHOES_INTERACTED);
+    }
 }
