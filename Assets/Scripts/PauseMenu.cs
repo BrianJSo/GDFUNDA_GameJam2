@@ -56,7 +56,7 @@ public class PauseMenu : MonoBehaviour
     public void LoadTitleScreen()
     {
         Time.timeScale = 1f;
-        //loadtitlescreen
+        UnityEngine.SceneManagement.SceneManager.LoadScene("StartMenu");
     }
 
     public void OptionsMenu()
