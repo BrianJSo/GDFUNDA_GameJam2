@@ -25,6 +25,7 @@ public class OpenAnimationTriggerListener : MonoBehaviour
         string triggeredItemName = parameters.GetStringExtra(GameEventNames.ITEM_NAME, "itemName");
         if(thisObjectController.GetItemName() == triggeredItemName && !isOpen)
         {
+            thisObjectController.GetComponent<BoxCollider>().enabled = false;
             animator.Play("OpenAnimation", 0, 0.0f);
             isOpen = true;
         }
