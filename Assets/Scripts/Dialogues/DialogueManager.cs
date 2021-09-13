@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class DialogueManager : MonoBehaviour
 {   
@@ -10,11 +11,12 @@ public class DialogueManager : MonoBehaviour
     public Queue<string> sentences;
 
     public Animator animator;
+    [SerializeField] public GameObject controller;
 
     // Start is called before the first frame update
     void Start()
     {
-        sentences = new Queue<string>();
+        sentences = new Queue<string>();      
 
         //EventBroadcaster.Instance.AddObserver(GameEventNames.BEAR_INTERACTED, TeddyBear.TriggerDialogue());
     }
@@ -24,11 +26,13 @@ public class DialogueManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             DisplayNextSentence();
-        }
+        }      
+        
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
+        controller.GetComponent<FirstPersonController>().enabled = false;
         animator.SetBool("isOpen", true);
         sentences.Clear();
 
@@ -36,11 +40,8 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(sentence);
         }
-
-
        
-            DisplayNextSentence();
-        
+            DisplayNextSentence();        
     }
     
     public void DisplayNextSentence()
@@ -68,6 +69,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        controller.GetComponent<FirstPersonController>().enabled = true;
         animator.SetBool("isOpen", false);
     }
 }
