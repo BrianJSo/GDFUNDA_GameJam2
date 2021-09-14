@@ -65,7 +65,6 @@ public class PostProcHandler : MonoBehaviour
 
     IEnumerator TurnOffProcessing(PostProcessVolume currVolume)
     {
-        Debug.Log("here");
         float timeElapsed = 0;
         float lerpDuration = 4;
         while (timeElapsed < lerpDuration)
